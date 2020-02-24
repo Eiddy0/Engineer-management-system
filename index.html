@@ -76,68 +76,70 @@
 		<!----head start-------------------------------->
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<nav class="navbar navbar-default navbar-mobile bootsnav">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-								<i class="fa fa-bars"></i>
-							</button>
-						</div>
-						<div class="collapse navbar-collapse" id="navbar-menu">
-							<ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">信息管理</a>
-									<ul class="dropdown-menu">
-										<li id="input"><a href="#">输入信息</a></li>
-										<li id="find"><a href="#">查询信息</a></li>
-										<li id="delete"><a href="#">删除信息</a></li>
-										<li><a href="#">修改信息</a></li>
-										<li><a href="#">信息导出</a></li>
-										<li><a href="#">信息导入</a></li>
-										<li><a href="#">所有信息</a></li>
-										<li><a href="#">退出系统</a></li>
-									</ul>
-								</li>
-								<li><a href="#">薪水计算</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">排序</a>
-									<ul class="dropdown-menu">
-										<li><a href="#">按编号</a>
-											<ul class="dropdown-menu">
-												<li><a href="#">升序</a></li>
-												<li><a href="#">降序</a></li>
-											</ul>
-										</li>
-										<li><a href="#">按姓名</a>
-											<ul class="dropdown-menu">
-												<li><a href="#">升序</a></li>
-												<li><a href="#">降序</a></li>
-											</ul>
-										</li>
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" >按工龄</a>
-											<ul class="dropdown-menu">
-												<li><a href="#">升序</a></li>
-												<li><a href="#">降序</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">生成报表</a>
-									<ul class="dropdown-menu">
-										<li><a href="#">信息报表</a></li>
-										<li><a href="#">薪水报表</a></li>
-									</ul>
-								</li>
-								<li><a href="#">关于</a></li>
-							</ul>
-						</div>
-					</nav>
-				</div>
+				<nav class="navbar navbar-default navbar-mobile bootsnav">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+							<i class="fa fa-bars"></i>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-menu">
+						<ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">信息管理</a>
+								<ul class="dropdown-menu">
+									<li id="input"><a href="#">输入信息</a></li>
+									<li id="find"><a href="#">查询信息</a></li>
+									<li id="delete"><a href="#">删除信息</a></li>
+									<li id="change"><a href="#">修改信息</a></li>
+									<li><a href="#">信息导出</a></li>
+									<li><a href="#">信息导入</a></li>
+									<li id="allInf"><a href="#">所有信息</a></li>
+									<li id="closesys"><a href="#">退出系统</a></li>
+								</ul>
+							</li>
+							<li><a href="#">薪水计算</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">排序</a>
+								<ul class="dropdown-menu">
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">按编号</a>
+										<ul class="dropdown-menu">
+											<li><a href="#">升序</a></li>
+											<li><a href="#">降序</a></li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">按姓名</a>
+										<ul class="dropdown-menu">
+											<li><a href="#">升序</a></li>
+											<li><a href="#">降序</a></li>
+										</ul>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" >按工龄</a>
+										<ul class="dropdown-menu">
+											<li><a href="#">升序</a></li>
+											<li><a href="#">降序</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">生成报表</a>
+								<ul class="dropdown-menu">
+									<li><a href="#">信息报表</a></li>
+									<li><a href="#">薪水报表</a></li>
+								</ul>
+							</li>
+							<li><a href="#">关于</a></li>
+						</ul>
+					</div>
+				</nav>
+				
 			</div>
 		</div>
 		<!----head end-------------------------------->
+		<div class="container bk"></div>
 		<!----AddInf start-------------------------------->
 		<div class="container" id="AddInf">
 			<form action=""  method="post">
@@ -147,32 +149,32 @@
 				<div class="form-row">
 					<label class="lab">
 						<span>编号</span>
-						<input type="text" name="num" id="num" required>
+						<input type="text" name="num" id="num" >
 					</label>
 				</div>
 				<div class="form-row">
 					<label class="lab">
 						<span>姓名</span>
-						<input type="text" name="name" id="name" required>
+						<input type="text" name="name" id="name" >
 					</label>
 				</div>
 
 				<div class="form-row">
 					<label class="lab">
 						<span>电话</span>
-						<input type="tel" name="tel" id="tel" required>
+						<input type="tel" name="tel" id="tel" >
 					</label>
 				</div>
 				<div class="form-row">
 					<label class="lab">
 						<span>年龄</span>
-						<input type="number" name="age" min="0" max="120" id="age" required>
+						<input type="number" name="age" min="0" max="120" id="age" >
 					</label>
 				</div>
 				<div class="form-row">
 					<label class="lab">
 						<span>基本工资</span>
-						<input type="number" name="wage" id="wage" required>
+						<input type="number" name="wage" id="wage" >
 					</label>
 				</div>
 
@@ -181,7 +183,7 @@
 					<div class="form-radio-buttons" id="sex" class="lab">
 						<div>
 							<label>
-								<input type="radio" name="gender" required>
+								<input type="radio" name="gender" >
 								<span>男</span>
 							</label>
 						</div>
@@ -197,7 +199,7 @@
 				<div class="form-row">
 					<label class="lab">
 						<span>出生日期</span>
-						<input type="date" name="birth" id="birth" required>
+						<input type="date" name="birth" id="birth" >
 					</label>
 				</div>
 				<div class="form-row">
@@ -221,7 +223,8 @@
 		<!----AddInf end-------------------------------->
 		<!----FindInf start-------------------------------->
 		<div class="container" id="FindInf">
-			<form action=""  method="post">
+			<div class="infcontent"></div>
+			<form action=""  method="post" target="frameName">
 				<div class="form-title-row">
 					<h1>查找工程师信息</h1>
 				</div>
@@ -230,38 +233,86 @@
 					<div class="form-radio-buttons" >
 						<div>
 							<label>
-								<input type="radio" name="choose" id="ch1"required>
+								<input type="radio" name="choose" class="ch1">
 								<span>编号</span>
 							</label>
 						</div>
 
 						<div>
 							<label>
-								<input type="radio" name="choose" id="ch2">
+								<input type="radio" name="choose" class="ch2">
 								<span>姓名</span>
 							</label>
 						</div>
 					</div>
 				</div>
-				<div class="form-row" id="iNum">
+				<div class="form-row iNum">
 					<label class="lab">
 						<span>输入编号</span>
-						<input type="text" id="inputNumv" required>
+						<input type="text" name="inputNum" class="inputNum" >
 					</label>
 				</div>
-				<div class="form-row" id="iName">
+				<div class="form-row iName">
 					<label class="lab">
 						<span>输入姓名</span>
-						<input type="text" id="inputName" required>
+						<input type="text" name="inputName" class="inputName" >
 					</label>
 				</div>
 				<div class="form-row">
-					<button type="submit" id="find">查询</button>
+					<button type="submit" id="btn-find">查询</button>
+					<button type="submit" class="btn-close">关闭</button>
 				</div>
 			</form>
+			<iframe src="" frameborder="0" name="frameName"></iframe>
 
 		</div>
 		<!----FindInf end-------------------------------->
+		<!----DeleteInf start-------------------------------->
+		<div class="container" id="DeleteInf">
+			<div class="infcontent"></div>
+			<form action=""  method="post" target="frameName">
+				<div class="form-title-row">
+					<h1>删除工程师信息</h1>
+				</div>
+				<div class="form-row">
+					<label class="lab"><span>选择</span></label>
+					<div class="form-radio-buttons" >
+						<div>
+							<label>
+								<input type="radio" name="choose" class="ch1">
+								<span>编号</span>
+							</label>
+						</div>
+
+						<div>
+							<label>
+								<input type="radio" name="choose" class="ch2">
+								<span>姓名</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-row iNum">
+					<label class="lab">
+						<span>输入编号</span>
+						<input type="text" name="inputNum" class="inputNum" >
+					</label>
+				</div>
+				<div class="form-row iName">
+					<label class="lab">
+						<span>输入姓名</span>
+						<input type="text" name="inputName" class="inputName" >
+					</label>
+				</div>
+				<div class="form-row">
+					<button type="submit" id="btn-delete">删除</button>
+					<button type="submit" class="btn-close">关闭</button>
+				</div>
+			</form>
+			<iframe src="" frameborder="0" name="frameName"></iframe>
+
+		</div>
+		<!----DeleteInf end-------------------------------->
 		<!----ShowInf start-------------------------------->
 		<div class="container" id="ShowInf">
 			
