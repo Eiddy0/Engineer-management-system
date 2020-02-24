@@ -1,0 +1,21 @@
+#ShowInf{
+	background-color: #fff;
+	color: blue;
+	width: 100%;
+	height: 100%;
+}
+.lab{
+	display: inline;
+}
+.lab>span,#sex,#sex>div{
+	display: inline-block !important;
+}
+.lab>input{
+	width: 280px !important;
+}
+/*#AddInf,#ShowInf{
+	display: none;
+}*/
+#iName{
+	display: none;
+}
