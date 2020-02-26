@@ -14,7 +14,7 @@
 .lab{
 	display: inline;
 }
-.lab>span,#sex,#sex>div{
+.lab>span,.Rsex,.Rsex>div{
 	display: inline-block !important;
 }
 .lab>input{
@@ -24,9 +24,13 @@
 	background-color: #f3f3f305;
     color: #4c565e85;
 }
-/*#ShowInf{
-	display: none;
-}*/
-#AddInf,#FindInf,.iName,iframe{
+
+#AddInf>form,
+#FindInf>form,
+#DeleteInf>form,
+#ChangeInf>form,
+#change-form,
+.iName,
+iframe{
 	display: none;
 }
