@@ -1,23 +1,23 @@
 $(function(){
-	$("#input").on("click",function(event){
+	$("#Navinput").on("click",function(event){
 		$("#AddInf>form").show();
 		$("#FindInf>form").hide();
 		$("#DeleteInf>form").hide();
 		$("#ChangeInf>form").hide();
 	});
-	$("#find").on("click",function(event){
+	$("#Navfind").on("click",function(event){
 		$("#AddInf>form").hide();
 		$("#FindInf>form").fadeIn(100);
 		$("#DeleteInf>form").hide();
 		$("#ChangeInf>form").hide();
 	});
-	$("#delete").on("click",function(event){
+	$("#Navdelete").on("click",function(event){
 		$("#AddInf>form").hide();
 		$("#FindInf>form").hide();
 		$("#DeleteInf>form").fadeIn(100);
 		$("#ChangeInf>form").hide();
 	});
-	$("#change").on("click",function(event){
+	$("#Navchange").on("click",function(event){
 		$("#AddInf>form").hide();
 		$("#FindInf>form").hide();
 		$("#DeleteInf>form").hide();
@@ -64,13 +64,13 @@ $(function(){
 		localStorage.setItem("infor",JSON.stringify(data));
 	}
 	function load(dt){
-		//var dt=getDate();
-		$("#InformCont").empty();
+		$("#InformTable").empty();
 		$.each(dt,function(i,n) {
-			$("#InformCont").prepend("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>年龄："+n.Rage+"</br>基本工资："+n.Rwage+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
+			$("#InformTable").prepend("<tr><td>"+n.Rnum+"</td><td>"+n.Rname+"</td><td>"+n.Rsex+"</td><td></td> <td>"+n.Rbirth+"</td><td>"+n.Redu+"</td><td></td><td>"+n.Rtel+"</td><td>"+n.Rage+"</td> <td>"+n.Rwage+"</td></tr>");
+		
 		})
 	}
-	$("#allInf").on("click",function(event){
+	$("#NavallInf").on("click",function(event){
 		$("#AddInf>form").hide();
 		$("#FindInf>form").hide();
 		$("#DeleteInf>form").hide();
@@ -91,9 +91,9 @@ $(function(){
 		$("#InformCont").empty();
 		$.each(data,function(i,n) {
 			if(n.Rnum == $("#FindInf .inputNum").val()||n.Rname == $("#FindInf .inputName").val()){
-				$("#InformCont").prepend("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>年龄："+n.Rage+"</br>基本工资："+n.Rwage+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
-			    flag=1;return false;
-			}
+				$("#Population-list-1 tbody").prepend('<tr><td>'+n.Rnum+'</td><td>'+n.Rname+'</td><td>'+n.Rsex+'</td><td></td> <td>'+n.Rbirth+'</td><td>'+n.Redu+'</td><td></td><td>'+n.Rtel+'</td><td>'+n.Rage+'</td> <td>'+n.Rwage+'</td></tr>');
+				 flag=1;return false; 
+				}
 		})
 		if(!flag){$("#InformCont").prepend("没有符合要求的工程师信息！");}
 	});
