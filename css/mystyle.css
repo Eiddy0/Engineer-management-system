@@ -3,13 +3,13 @@
 }
 .bk{
 	box-sizing: border-box;
-	margin: 15px auto;
+	margin: 10px auto;
 	padding: 35px 55px;
 	color: #5f5f5f;
 	background-color:  #ffffff;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 	text-align: left;
-	min-height: 520px;
+	min-height: 535px;
 }
 #ShowInf>div{
 	margin: 20px auto;
@@ -20,12 +20,31 @@
 .lab>span,.Rsex,.Rsex>div{
 	display: inline-block !important;
 }
-.lab>input{
-	width: 280px !important;
+.lab>input,
+form select{
+	width: 260px !important;
+}
+.lab>input.Rbase,
+.lab>input.Rbirth{
+	width: 232px !important;
+}
+#CountWage .lab>input{
+	width: 240px !important;
+}
+#CountWage>form{
+	margin: 20px auto;
 }
 .btn-close{
-	background-color: #f3f3f305;
-    color: #4c565e85;
+	background-color: #f3f3f305 !important;
+    color: #4c565e85 !important;
+}
+#AddInf>form,#change-form{
+	width: 900px;
+	left: auto;
+	margin: 20px 120px;
+}
+#AddInf>form .form-title-row,#change-form .form-title-row{
+	margin: 0 auto 20px;
 }
 
 #AddInf>form,
@@ -33,6 +52,7 @@
 #DeleteInf>form,
 #ChangeInf>form,
 #change-form,
+#CountWage>form,
 #jobData,
 .iName,
 iframe{

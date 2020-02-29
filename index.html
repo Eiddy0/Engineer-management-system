@@ -22,7 +22,7 @@
 	nav.navbar.bootsnav ul.nav > li > a{
 		color: #474747;
 		text-transform: uppercase;
-		padding: 30px;
+		padding: 25px 30px;
 	}
 	nav.navbar.bootsnav ul.nav > li:hover{
 		background: #f4f4f4;
@@ -98,29 +98,29 @@
 									<li id="closesys"><a href="javascript:;">退出系统</a></li>
 								</ul>
 							</li>
-							<li><a href="javascript:;">薪水计算</a></li>
+							<li id="count"><a href="javascript:;">薪水计算</a></li>
 							<li class="dropdown">
 								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">排序</a>
 								<ul class="dropdown-menu">
 									<li class="dropdown">
 										<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown">按编号</a>
 										<ul class="dropdown-menu">
-											<li><a href="javascript:;">升序</a></li>
-											<li><a href="javascript:;">降序</a></li>
+											<li id="upsortNum"><a href="javascript:;">升序</a></li>
+											<li id="dosortNum"><a href="javascript:;">降序</a></li>
 										</ul>
 									</li>
 									<li class="dropdown">
 										<a href="javascript:;javascript:;" class="dropdown-toggle" data-toggle="dropdown">按姓名</a>
 										<ul class="dropdown-menu">
-											<li><a href="javascript:;">升序</a></li>
-											<li><a href="javascript:;">降序</a></li>
+											<li id="upsortName"><a href="javascript:;">升序</a></li>
+											<li id="dosortName"><a href="javascript:;">降序</a></li>
 										</ul>
 									</li>
 									<li class="dropdown">
 										<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" >按工龄</a>
 										<ul class="dropdown-menu">
-											<li><a href="javascript:;">升序</a></li>
-											<li><a href="javascript:;">降序</a></li>
+											<li id="upsortWky"><a href="javascript:;">升序</a></li>
+											<li id="dosortWky"><a href="javascript:;">降序</a></li>
 										</ul>
 									</li>
 								</ul>
@@ -128,8 +128,8 @@
 							<li class="dropdown">
 								<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">生成报表</a>
 								<ul class="dropdown-menu">
-									<li><a href="javascript:;">信息报表</a></li>
-									<li><a href="javascript:;">薪水报表</a></li>
+									<li id="InfReport"><a href="javascript:;">信息报表</a></li>
+									<li id="WageReport"><a href="javascript:;">薪水报表</a></li>
 								</ul>
 							</li>
 							<li><a href="javascript:;">关于</a></li>
@@ -149,78 +149,74 @@
 				<div class="form-title-row">
 					<h1>添加工程师信息</h1>
 				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>编号</span>
-						<input type="text" name="num" class="Rnum" >
-					</label>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>姓名</span>
-						<input type="text" name="name" class="Rname" >
-					</label>
-				</div>
-
-				<div class="form-row">
-					<label class="lab">
-						<span>电话</span>
-						<input type="tel" name="tel" class="Rtel" >
-					</label>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>年龄</span>
-						<input type="number" name="age" min="0" max="120" class="Rage" >
-					</label>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>基本工资</span>
-						<input type="number" name="wage" class="Rwage" >
-					</label>
-				</div>
-
-				<div class="form-row">
-					<label class="lab"><span>性别</span></label>
-					<div class="form-radio-buttons Rsex lab">
-						<div>
-							<label>
-								<input type="radio" name="gender" >
-								<span>男</span>
+				<div>
+					<div class="col-md-6">
+						<div class="form-row">
+							<label class="lab">
+								<span>编号</span>
+								<input type="number" name="num" class="Rnum" >
 							</label>
 						</div>
-
-						<div>
-							<label>
-								<input type="radio" name="gender">
-								<span>女</span>
+						<div class="form-row">
+							<label class="lab">
+								<span>姓名</span>
+								<input type="text" name="name" class="Rname required" >
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>电话</span>
+								<input type="tel" name="tel" class="Rtel required" >
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>工龄</span>
+								<input type="number" name="age" min="0" max="100" class="Rwkyear" >
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>基本工资</span>
+								<input type="number" name="base" class="Rbase" >
 							</label>
 						</div>
 					</div>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>出生日期</span>
-						<input type="date" name="birth" class="Rbirth" >
-					</label>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>学历</span>
-						<select class="Redu">
-							<option>博士</option>
-							<option>硕士</option>
-							<option>本科</option>
-							<option></option>
-						</select>
+					
+					<div class="col-md-6">
+						<div class="form-row">
+							<label class="lab">
+								<span>性别</span>
+								<select class="Rsex">
+									<option>男</option>
+									<option>女</option>
+								</select>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>出生日期</span>
+								<input type="date" name="birth" class="Rbirth" >
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>学历</span>
+								<select class="Redu">
+									<option>博士</option>
+									<option>硕士</option>
+									<option>本科</option>
+									<option></option>
+								</select>
 
-					</label>
-				</div>
-				<div class="form-row">
-					<button type="submit" id="btn-add">添加</button>	
-					<button type="submit" class="btn-close" href="javascript:;">关闭</button>
-				</div>
+							</label>
+						</div>
+						<div class="form-row">
+							<input type="button" value="添加" id="btn-add">
+							<input type="button" value="关闭" class="btn-close">
+						</div>
+					</div>
+				</div>	
 			</form>
 
 		</div>
@@ -262,8 +258,8 @@
 					</label>
 				</div>
 				<div class="form-row">
-					<button type="submit" id="btn-find">查询</button>
-					<button type="submit" class="btn-close">关闭</button>
+					<input type="button" value="查询" id="btn-find">
+					<input type="button" value="关闭" class="btn-close">
 				</div>
 			</form>
 			<iframe src="" frameborder="0" name="frameName"></iframe>
@@ -307,8 +303,8 @@
 					</label>
 				</div>
 				<div class="form-row">
-					<button type="submit" id="btn-delete">删除</button>
-					<button type="submit" class="btn-close">关闭</button>
+					<input type="button" value="删除" id="btn-delete">
+					<input type="button" value="关闭" class="btn-close">
 				</div>
 			</form>
 			<iframe src="" frameborder="0" name="frameName"></iframe>
@@ -351,91 +347,126 @@
 					</label>
 				</div>
 				<div class="form-row">
-					<button type="submit" id="btn-change1">确定</button>
-					<button type="submit" class="btn-close">关闭</button>
+					<input type="button" value="确定" id="btn-change1">
+					<input type="button" value="关闭" class="btn-close">
 				</div>
 			</form>
 			<iframe src="" frameborder="0" name="frameName" ></iframe>
+
 			<form action=""  method="post" id="change-form">
 				<div class="form-title-row">
 					<h1>修改工程师信息</h1>
 				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>编号</span>
-						<input type="text" name="num" class="Rnum" >
-					</label>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>姓名</span>
-						<input type="text" name="name" class="Rname" >
-					</label>
-				</div>
-
-				<div class="form-row">
-					<label class="lab">
-						<span>电话</span>
-						<input type="tel" name="tel" class="Rtel" >
-					</label>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>年龄</span>
-						<input type="number" name="age" min="0" max="120" class="Rage" >
-					</label>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>基本工资</span>
-						<input type="number" name="wage" class="Rwage" >
-					</label>
-				</div>
-
-				<div class="form-row">
-					<label class="lab"><span>性别</span></label>
-					<div class="form-radio-buttons Rsex lab">
-						<div>
-							<label>
-								<input type="radio" name="gender" >
-								<span>男</span>
+				<div>
+					<div class="col-md-6">
+						<div class="form-row">
+							<label class="lab">
+								<span>编号</span>
+								<input type="text" name="num" class="Rnum" >
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>姓名</span>
+								<input type="text" name="name" class="Rname" >
 							</label>
 						</div>
 
-						<div>
-							<label>
-								<input type="radio" name="gender">
-								<span>女</span>
+						<div class="form-row">
+							<label class="lab">
+								<span>电话</span>
+								<input type="tel" name="tel" class="Rtel" >
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>工龄</span>
+								<input type="number" name="age" min="0" max="120" class="Rwkyear" >
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>基本工资</span>
+								<input type="number" name="wage" class="Rbase" >
 							</label>
 						</div>
 					</div>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>出生日期</span>
-						<input type="date" name="birth" class="Rbirth" >
-					</label>
-				</div>
-				<div class="form-row">
-					<label class="lab">
-						<span>学历</span>
-						<select class="Redu">
-							<option>博士</option>
-							<option>硕士</option>
-							<option>本科</option>
-							<option></option>
-						</select>
+					<div class="col-md-6">
+						<div class="form-row">
+							<label class="lab">
+								<span>性别</span>
+								<select class="Rsex">
+									<option>男</option>
+									<option>女</option>
+								</select>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>出生日期</span>
+								<input type="date" name="birth" class="Rbirth" >
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>学历</span>
+								<select class="Redu">
+									<option>博士</option>
+									<option>硕士</option>
+									<option>本科</option>
+									<option></option>
+								</select>
 
-					</label>
-				</div>
-				<div class="form-row">
-					<button type="submit" id="btn-change2">修改</button>					
-					<button type="submit" class="btn-close">关闭</button>
+							</label>
+						</div>
+						<div class="form-row">
+							<input type="button" value="修改" id="btn-change2">
+							<input type="button" value="关闭" class="btn-close">
+						</div>
+					</div>
 				</div>
 			</form>
 
 		</div>
 		<!----ChangeInf end-------------------------------->
+		<!----CountWage start-------------------------------->
+		<div class="container" id="CountWage">
+			<form action=""  method="post" target="frameName">
+				<div class="form-title-row">
+					<h1>薪水计算</h1>
+				</div>
+				<div class="form-row">
+					<label class="lab">
+						<span>工程师编号</span>
+						<input type="number" class="Rnum" >
+					</label>
+				</div>
+				<div class="form-row">
+					<label class="lab">
+						<span>月工作天数</span>
+						<input type="number" class="Rwkday" >
+					</label>
+				</div>
+				<div class="form-row">
+					<label class="lab">
+						<span>月收益金额</span>
+						<input type="number" class="Rincome" >
+					</label>
+				</div>
+				<div class="form-row">
+					<label class="lab">
+						<span>缴纳保险金</span>
+						<input type="number" class="Rinsure" >
+					</label>
+				</div>
+				<div class="form-row">
+					<input type="button" value="计算" id="btn-count">
+					<input type="button" value="关闭" class="btn-close">
+				</div>
+			</form>
+			<iframe src="" frameborder="0" name="frameName"></iframe>
+		</div>
+		<!----CountWage end-------------------------------->
 		
 	</div>
 
@@ -444,7 +475,7 @@
 	<script>window.jQuery || document.write('<script src="js/jquery-1.11.0.min.js"><\/script>')</script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/bootsnav.js"></script>
-	<script src="FileSaver.js"></script>
+	<script type="text/javascript" src="js/FileSaver.js"></script>
 	<script type="text/javascript" src="js/myjs.js"></script>
 
 </body>
