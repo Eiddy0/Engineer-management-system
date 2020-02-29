@@ -1,3 +1,6 @@
+.dropdown-menu>li:hover{
+ background-color: #f4f4f4;
+}
 .bk{
 	box-sizing: border-box;
 	margin: 15px auto;
@@ -6,7 +9,7 @@
 	background-color:  #ffffff;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 	text-align: left;
-	min-height: 600px;
+	min-height: 520px;
 }
 #ShowInf>div{
 	margin: 20px auto;
@@ -30,6 +33,7 @@
 #DeleteInf>form,
 #ChangeInf>form,
 #change-form,
+#jobData,
 .iName,
 iframe{
 	display: none;

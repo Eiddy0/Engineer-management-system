@@ -1,30 +1,47 @@
 $(function(){
-	$("#Navinput").on("click",function(event){
+	$("#input").on("click",function(event){
 		$("#AddInf>form").show();
 		$("#FindInf>form").hide();
 		$("#DeleteInf>form").hide();
 		$("#ChangeInf>form").hide();
 	});
-	$("#Navfind").on("click",function(event){
+	$("#find").on("click",function(event){
 		$("#AddInf>form").hide();
 		$("#FindInf>form").fadeIn(100);
 		$("#DeleteInf>form").hide();
 		$("#ChangeInf>form").hide();
 	});
-	$("#Navdelete").on("click",function(event){
+	$("#delete").on("click",function(event){
 		$("#AddInf>form").hide();
 		$("#FindInf>form").hide();
 		$("#DeleteInf>form").fadeIn(100);
 		$("#ChangeInf>form").hide();
 	});
-	$("#Navchange").on("click",function(event){
+	$("#change").on("click",function(event){
 		$("#AddInf>form").hide();
 		$("#FindInf>form").hide();
 		$("#DeleteInf>form").hide();
 		$("#ChangeInf>.chg").fadeIn(100);
 	});
-
-
+	$("#output").on("click",function(event){
+		var content =getDate(); 
+		downLoad(content);
+	});
+    $('#loadfile').on("click",function(event){
+        $('#jobData').click();
+    });
+    $("#allInf").on("click",function(event){
+		$("#AddInf>form").hide();
+		$("#FindInf>form").hide();
+		$("#DeleteInf>form").hide();
+		var local=getDate();
+		load(local);
+	});
+	$('#closesys').on("click",function(){
+            if(confirm('你确定退出系统吗')){
+                closewin();
+            }else{ }
+        });
 	$(".btn-close").on("click",function(event){
 		$(".btn-close").parents("form").hide();
 	});
@@ -53,7 +70,7 @@ $(function(){
 	});
 
 	function getDate() {
-		var  data= localStorage.getItem("infor");
+		var  data= localStorage.getItem("RgInfor");
 		if(data !==null){
 			return JSON.parse(data);
 		}else{
@@ -61,22 +78,29 @@ $(function(){
 		}
 	}
 	function saveDate(data){
-		localStorage.setItem("infor",JSON.stringify(data));
+		localStorage.setItem("RgInfor",JSON.stringify(data));
 	}
 	function load(dt){
-		$("#InformTable").empty();
+		//var dt=getDate();
+		$("#InformCont").empty();
 		$.each(dt,function(i,n) {
-			$("#InformTable").prepend("<tr><td>"+n.Rnum+"</td><td>"+n.Rname+"</td><td>"+n.Rsex+"</td><td></td> <td>"+n.Rbirth+"</td><td>"+n.Redu+"</td><td></td><td>"+n.Rtel+"</td><td>"+n.Rage+"</td> <td>"+n.Rwage+"</td></tr>");
-		
+			$("#InformCont").prepend("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>年龄："+n.Rage+"</br>基本工资："+n.Rwage+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
 		})
 	}
-	$("#NavallInf").on("click",function(event){
-		$("#AddInf>form").hide();
-		$("#FindInf>form").hide();
-		$("#DeleteInf>form").hide();
-		var local=getDate();
-		load(local);
-	});
+	function downLoad(content){
+    var blob = new Blob([content], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, "save.txt");
+    }
+	function closewin(){
+            var userAgent = navigator.userAgent;
+		    if (userAgent.indexOf("Firefox") != -1 || userAgent.indexOf("Chrome") != -1) {
+		        location.href = "about:blank";
+		    } else {
+		        self.opener = null;
+		        self.open('', '_self');
+		    }
+		    self.close();
+        }
 	$(".ch1").on("click",function(event){
 		$(".iNum").show();
 		$(".iName").hide();
@@ -91,9 +115,9 @@ $(function(){
 		$("#InformCont").empty();
 		$.each(data,function(i,n) {
 			if(n.Rnum == $("#FindInf .inputNum").val()||n.Rname == $("#FindInf .inputName").val()){
-				$("#Population-list-1 tbody").prepend('<tr><td>'+n.Rnum+'</td><td>'+n.Rname+'</td><td>'+n.Rsex+'</td><td></td> <td>'+n.Rbirth+'</td><td>'+n.Redu+'</td><td></td><td>'+n.Rtel+'</td><td>'+n.Rage+'</td> <td>'+n.Rwage+'</td></tr>');
-				 flag=1;return false; 
-				}
+				$("#InformCont").prepend("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>年龄："+n.Rage+"</br>基本工资："+n.Rwage+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
+			    flag=1;return false;
+			}
 		})
 		if(!flag){$("#InformCont").prepend("没有符合要求的工程师信息！");}
 	});
@@ -150,6 +174,5 @@ $(function(){
 		})
 		if(!flag1){$("#InformCont").prepend("没有符合要求的工程师信息！");}
 	});
-
 
 })
