@@ -62,22 +62,130 @@ $(function(){
 	$(".btn-close").on("click",function(event){
 			$(".btn-close").parents("form").hide();
 		});
-	$("#btn-add").on("click",function(event){
-		var local=getDate();
-		local.push({
-			Rnum:$("#AddInf .Rnum").val()*1,
-			Rname:$("#AddInf .Rname").val(),
-			Rtel:$("#AddInf .Rtel").val(),
-			Rwkyear:$("#AddInf .Rwkyear").val()*1,
-			Rbase:$("#AddInf .Rbase").val()*1,
-			Rsex:$("#AddInf .Rsex").val(),
-			Rbirth:$("#AddInf .Rbirth").val(),
-			Redu:$("#AddInf .Redu").val(),
-		});
-		saveDate(local);
-		$("#InformCont").empty();
-		$("#InformCont").prepend('成功添加该工程师信息！</br><div>编号：'+$("#AddInf .Rnum").val()+'</br>姓名：'+$("#AddInf .Rname").val()+'</br>电话：'+$("#AddInf .Rtel").val()+'</br>工龄：'+$("#AddInf .Rwkyear").val()+'</br>基本工资：'+$("#AddInf .Rbase").val()+'</br>性别：'+$("#AddInf .Rsex").val()+'</br>生日：'+$("#AddInf .Rbirth").val()+'</br>学历：'+$("#AddInf .Redu").val()+'</br></br></div>');
+
+	var num_Boolean = false;
+	var name_Boolean = false;
+	var tel_Boolean = false;
+	var num_Boolean1 = true;
+	var name_Boolean1 = true;
+	var tel_Boolean1 = true;
+	$('.required+span').html("*").css("color","red" );
+	$('#AddInf .Rnum').blur(function(){
+		if ((/^\d{4}$/).test($(".Rnum").val())){
+		    var local=getDate();
+		    var flag=true;
+			$.each(local,function(i,n) {
+				if(n.Rnum == $(".Rnum").val()){
+					$("form>div>.col-md-6>span").css({"color":"red","opacity":"1"});
+					flag = false;
+					return false;
+				}
+		  	});
+		  	if(flag){
+			    $('.user_num').html("✔").css("color","green");
+			    $("form>div>.col-md-6>span").css({"color":"red","opacity":"0"});
+			    num_Boolean = true;
+			}
+		}
+		else {
+		    $('.user_num').html("×").css("color","red");
+		    num_Boolean = false;
+		}
 	});
+	$('#AddInf .Rname').blur(function(){
+	  if ((/^.{1,20}$/).test($(".Rname").val())){
+	    $('.user_name').html("✔").css("color","green");
+	    name_Boolean = true;
+	  }else {
+	    $('.user_name').html("×").css("color","red");
+	    name_Boolean = false;
+	  }
+	});
+	$('#AddInf .Rtel').blur(function(){
+	  if ((/^.{1,15}$/).test($("#AddInf .Rtel").val())){
+	    $('.user_tel').html("✔").css("color","green");
+	    tel_Boolean = true;
+	  }else {
+	    $('.user_tel').html("×").css("color","red");
+	    tel_Boolean = false;
+	  }
+	});
+	$('#change-form .Rnum').change(function(){
+		if ((/^\d{4}$/).test($("#change-form .Rnum").val())){
+		    var local=getDate();
+		    var flag=true;
+			$.each(local,function(i,n) {
+				if(n.Rnum == $(".Rnum").val()){
+					$("form>div>.col-md-6>span").css({"color":"red","opacity":"1"});
+					flag = false;
+					return false;
+				}
+		  	});
+		  	if(flag){
+			    $('.user_num').html("✔").css("color","green");
+			    $("form>div>.col-md-6>span").css({"color":"red","opacity":"0"});
+			    num_Boolean1 = true;
+			}
+		}
+		else {
+		    $('.user_num').html("×").css("color","red");
+		    num_Boolean1 = false;
+		}
+	});
+	$('#change-form .Rname').change(function(){
+	  if ((/^.{1,20}$/).test($("#change-form .Rname").val())){
+	    $('.user_name').html("✔").css("color","green");
+	    name_Boolean1 = true;
+	  }else {
+	    $('.user_name').html("×").css("color","red");
+	    name_Boolean1 = false;
+	  }
+	});
+	$('#change-form .Rtel').change(function(){
+	  if ((/^.{1,15}$/).test($("#change-form .Rtel").val())){
+	    $('.user_tel').html("✔").css("color","green");
+	    tel_Boolean1 = true;
+	  }else {
+	    $('.user_tel').html("×").css("color","red");
+	    tel_Boolean1 = false;
+	  }
+	});
+	$("#btn-add").on("click",function(event){
+		if(num_Boolean && name_Boolean && tel_Boolean == true){
+			var local=getDate();
+		    local.push({
+				Rnum:$("#AddInf .Rnum").val(),
+				Rname:$("#AddInf .Rname").val(),
+				Rtel:$("#AddInf .Rtel").val(),
+				Rsite:$("#AddInf .Rsite").val(),
+				Rnative:$("#AddInf .Rnative").val(),
+				Rwkyear:$("#AddInf .Rwkyear").val()*1,
+				Rbase:$("#AddInf .Rbase").val()*1,
+				Rsex:$("#AddInf .Rsex").val(),
+				Rbirth:$("#AddInf .Rbirth").val(),
+				Redu:$("#AddInf .Redu").val(),
+			});
+			saveDate(local);
+			$("#InformCont").empty();
+			$("#InformCont").prepend('成功添加该工程师信息！</br><div>编号：'+$("#AddInf .Rnum").val()+'</br>姓名：'+$("#AddInf .Rname").val()+'</br>电话：'+$("#AddInf .Rtel").val()+'</br>地址：'+$("#AddInf .Rsite").val()+'</br>籍贯：'+$("#AddInf .Rnative").val()+'</br>工龄：'+$("#AddInf .Rwkyear").val()+'</br>基本工资：'+$("#AddInf .Rbase").val()+'</br>性别：'+$("#AddInf .Rsex").val()+'</br>生日：'+$("#AddInf .Rbirth").val()+'</br>学历：'+$("#AddInf .Redu").val()+'</br></br></div>');
+	    	$("#AddInf .Rnum").val("");
+			$("#AddInf .Rname").val("");
+			$("#AddInf .Rtel").val("");
+			$("#AddInf .Rsite").val("");
+			$("#AddInf .Rnative").val("");
+			$("#AddInf .Rwkyear").val("");			
+			$("#AddInf .Rbase").val("");			
+			$("#AddInf .Rsex").val("");
+			$("#AddInf .Rbirth").val("");
+			$("#AddInf .Redu").val("");
+			$('.required+span').html("*").css("color","red" );
+	    }else {
+		    alert("请完善信息");
+	    }
+	});
+	function PrefixInteger(num, length) {
+		return (Array(length).join('0') + num).slice(-length);
+	}
 
 	function getDate() {
 		var  data= localStorage.getItem("RgInfor");
@@ -93,7 +201,7 @@ $(function(){
 	function load(dt){
 		$("#InformCont").empty();
 		$.each(dt,function(i,n) {
-			$("#InformCont").prepend("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>工龄："+n.Rwkyear+"</br>基本工资："+n.Rbase+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
+			$("#InformCont").prepend("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>地址："+n.Rsite+"</br>籍贯："+n.Rnative+"</br>工龄："+n.Rwkyear+"</br>基本工资："+n.Rbase+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
 		})
 	}
 
@@ -136,11 +244,6 @@ $(function(){
 		    }
 		    self.close();
         }
-    $("form :input.required").each(function () {
-        var $required = $('<strong style="color: red; font-size: large; ">*</strong>');
-        $(this).parent().append($required);
-    });
-    
 	$(".ch1").on("click",function(event){
 		$(".iNum").show();
 		$(".iName").hide();
@@ -155,7 +258,7 @@ $(function(){
 		$("#InformCont").empty();
 		$.each(data,function(i,n) {
 			if(n.Rnum == $("#FindInf .inputNum").val()||n.Rname == $("#FindInf .inputName").val()){
-				$("#InformCont").prepend("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>工龄："+n.Rwkyear+"</br>基本工资："+n.Rbase+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
+				$("#InformCont").prepend("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>地址："+n.Rsite+"</br>籍贯："+n.Rnative+"</br>工龄："+n.Rwkyear+"</br>基本工资："+n.Rbase+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
 			    flag=1;return false;
 			}
 		})
@@ -171,6 +274,7 @@ $(function(){
 				dt.splice(i,1);flag=1;return false;
 			}
 		})
+		$("#DeleteInf .inputNum").val("");
 		if(!flag){$("#InformCont").prepend("没有符合要求的工程师信息！");}
 		else {$("#InformCont").prepend("已删除该工程师信息！");}
 		saveDate(dt);
@@ -186,23 +290,36 @@ $(function(){
 				$("#change-form .Rnum").val(n.Rnum);
 				$("#change-form .Rname").val(n.Rname);
 				$("#change-form .Rtel").val(n.Rtel);
+				$("#change-form .Rsite").val(n.Rsite);
+				$("#change-form .Rnative").val(n.Rnative);
 				$("#change-form .Rwkyear").val(n.Rwkyear);
 				$("#change-form .Rbase").val(n.Rbase);
 				$("#change-form .Rsex").val(n.Rsex);
 				$("#change-form .Rbirth").val(n.Rbirth);
 				$("#change-form .Redu").val(n.Redu);
+				$('.required+span').html("*").css("color","red" );
+				$("form>div>.col-md-6>span").css({"color":"red","opacity":"0"});
 				$("#btn-change2").on("click",function(event){
-					n.Rnum=$("#change-form .Rnum").val()*1;
-					n.Rname=$("#change-form .Rname").val();
-					n.Rtel=$("#change-form .Rtel").val();
-					n.Rwkyear=$("#change-form .Rwkyear").val()*1;
-					n.Rbase=$("#change-form .Rbase").val()*1;
-					n.Rsex=$("#change-form .Rsex").val();
-					n.Rbirth=$("#change-form .Rbirth").val();
-					n.Redu=$("#change-form .Redu").val();
-					saveDate(dt);
-					$("#InformCont").prepend("已修改该工程师信息！");
-					$("#btn-change2").parents("#change-form").hide();
+					if(num_Boolean1 && name_Boolean1 && tel_Boolean1 == true){
+						n.Rnum=$("#change-form .Rnum").val();
+						n.Rname=$("#change-form .Rname").val();
+						n.Rtel=$("#change-form .Rtel").val();
+						n.Rsite=$("#change-form .Rsite").val();
+						n.Rnative=$("#change-form .Rnative").val();
+						n.Rwkyear=$("#change-form .Rwkyear").val()*1;
+						n.Rbase=$("#change-form .Rbase").val()*1;
+						n.Rsex=$("#change-form .Rsex").val();
+						n.Rbirth=$("#change-form .Rbirth").val();
+						n.Redu=$("#change-form .Redu").val();
+						saveDate(dt);
+						$("#InformCont").empty();
+						$("#InformCont").prepend("已修改该工程师信息！");
+					    $("#btn-change2").parents("#change-form").hide();
+				    }else {
+					    alert("请完善信息");
+				    }
+					
+					
 				});
 				// $("#change-form .btn-close").on("click",function(event){
 				// 	$("#InformCont").prepend("修改工程师信息失败！");
@@ -253,7 +370,7 @@ $(function(){
 		sortChinese(data,'Rname');
 		$("#InformCont").empty();
 		$.each(data,function(i,n) {
-			$("#InformCont").append("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>工龄："+n.Rwkyear+"</br>基本工资："+n.Rbase+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
+			$("#InformCont").append("<div>编号："+n.Rnum+"</br>姓名："+n.Rname+"</br>电话："+n.Rtel+"</br>地址："+n.Rsite+"</br>籍贯："+n.Rnative+"</br>工龄："+n.Rwkyear+"</br>基本工资："+n.Rbase+"</br>性别："+n.Rsex+"</br>生日："+n.Rbirth+"</br>学历："+n.Redu+"</br></br></div>");
 		})
 	});
 	$("#upsortWky").on("click",function(event){
@@ -272,7 +389,7 @@ $(function(){
 		$("#InformCont").prepend('<div id="ShowReport"> <div class="row"> <div class="col-md-12"> <br> <h2 style="text-align: center;margin-top: 0px;">信息报表</h2> <div class="table-responsive"> <table class="table table-striped table-bordered"data-name="cool-table"> <thead> <tr> <th>编号</th> <th>姓名</th> <th>性别</th> <th>出生日期</th> <th>籍贯</th> <th>住址</th> <th>学历</th> <th>电话</th> <th>工龄</th> <th>基本工资</th> </tr> </thead> <tbody id="InformReport"> <tbody> </table> </div> </div> </div> </div>');
 		var data = getDate();
 		$.each(data,function(i,n) {
-			$("#InformReport").prepend('<tr><td>'+n.Rnum+'</td><td>'+n.Rname+'</td><td>'+n.Rsex+'</td><td>'+n.Rbirth+'</td><td></td><td></td><td>'+n.Redu+'</td><td>'+n.Rtel+'</td><td>'+n.Rwkyear+'</td><td>'+n.Rbase+'</td><tr>');
+			$("#InformReport").prepend('<tr><td>'+n.Rnum+'</td><td>'+n.Rname+'</td><td>'+n.Rsex+'</td><td>'+n.Rbirth+'</td><td>'+n.Rnative+'</td><td>'+n.Rsite+'</td><td>'+n.Redu+'</td><td>'+n.Rtel+'</td><td>'+n.Rwkyear+'</td><td>'+n.Rbase+'</td><tr>');
 		})
 	});
 	$("#WageReport").on("click",function(event){
@@ -283,5 +400,6 @@ $(function(){
 			$("#InformReport").prepend('<tr><td>'+n.Rnum+'</td><td>'+n.Rname+'</td><td>'+n.Rwkyear+'</td><td>'+n.Rbase+'</td><td>'+n.Rwkday+'</td><td>'+n.Rincome+'</td><td>'+n.Rinsure+'</td><td>'+n.Rwage+'</td><tr>');
 		})
 	});
+	
 
 })

@@ -39,14 +39,17 @@ form select{
     color: #4c565e85 !important;
 }
 #AddInf>form,#change-form{
-	width: 900px;
+	width: 860px;
 	left: auto;
-	margin: 20px 120px;
+	margin: 20px 140px;
+	padding: 30px 55px;
 }
 #AddInf>form .form-title-row,#change-form .form-title-row{
-	margin: 0 auto 20px;
+	margin: 0 auto 5px;
 }
-
+#AddInf>form .form-row ,#change-form .form-row{
+    margin: 20px auto 0;
+}
 #AddInf>form,
 #FindInf>form,
 #DeleteInf>form,
@@ -57,4 +60,12 @@ form select{
 .iName,
 iframe{
 	display: none;
+}
+
+.lab span:nth-of-type(2){
+  margin-top: 8px;
+  margin-left: 5px;
+}
+form>div>.col-md-6:nth-of-type(1)>.form-row:nth-of-type(2){
+	margin: 1px auto 0!important;
 }

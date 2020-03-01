@@ -154,36 +154,56 @@
 						<div class="form-row">
 							<label class="lab">
 								<span>编号</span>
-								<input type="number" name="num" class="Rnum" >
+								<input type="number" name="num" class="Rnum required" >
+								<span class="user_num"></span>
 							</label>
 						</div>
+						<span style="opacity: 0;">编号已存在</span>
 						<div class="form-row">
 							<label class="lab">
 								<span>姓名</span>
 								<input type="text" name="name" class="Rname required" >
+								<span class="user_name"></span>
 							</label>
 						</div>
 						<div class="form-row">
 							<label class="lab">
 								<span>电话</span>
-								<input type="tel" name="tel" class="Rtel required" >
+								<input type="text" name="tel" class="Rtel required" >
+								<span class="user_tel"></span>
 							</label>
 						</div>
 						<div class="form-row">
 							<label class="lab">
+								<span>地址</span>
+								<input type="text" name="site" class="Rsite required" >
+								<span class="user_site"></span>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>籍贯</span>
+								<input type="text" name="native" class="Rnative required" >
+								<span class="user_native"></span>
+							</label>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="form-row">
+							<label class="lab">
 								<span>工龄</span>
-								<input type="number" name="age" min="0" max="100" class="Rwkyear" >
+								<input type="number" name="wkyear" min="0" max="100" class="Rwkyear" >
+								<span class="user_wkyear"></span>
 							</label>
 						</div>
 						<div class="form-row">
 							<label class="lab">
 								<span>基本工资</span>
 								<input type="number" name="base" class="Rbase" >
+								<span class="user_base"></span>
 							</label>
 						</div>
-					</div>
-					
-					<div class="col-md-6">
 						<div class="form-row">
 							<label class="lab">
 								<span>性别</span>
@@ -211,10 +231,11 @@
 
 							</label>
 						</div>
-						<div class="form-row">
-							<input type="button" value="添加" id="btn-add">
-							<input type="button" value="关闭" class="btn-close">
-						</div>
+					</div>
+
+					<div style="display: inline;">
+						<input type="button" value="添加" id="btn-add">
+						<input type="button" value="关闭" class="btn-close">
 					</div>
 				</div>	
 			</form>
@@ -362,36 +383,56 @@
 						<div class="form-row">
 							<label class="lab">
 								<span>编号</span>
-								<input type="text" name="num" class="Rnum" >
+								<input type="number" name="num" class="Rnum required" >
+								<span class="user_num"></span>
 							</label>
 						</div>
+						<span style="opacity: 0;">编号已存在</span>
 						<div class="form-row">
 							<label class="lab">
 								<span>姓名</span>
-								<input type="text" name="name" class="Rname" >
+								<input type="text" name="name" class="Rname required" >
+								<span class="user_name"></span>
 							</label>
 						</div>
-
 						<div class="form-row">
 							<label class="lab">
 								<span>电话</span>
-								<input type="tel" name="tel" class="Rtel" >
+								<input type="text" name="tel" class="Rtel required" >
+								<span class="user_tel"></span>
 							</label>
 						</div>
 						<div class="form-row">
 							<label class="lab">
+								<span>地址</span>
+								<input type="text" name="site" class="Rsite required" >
+								<span class="user_site"></span>
+							</label>
+						</div>
+						<div class="form-row">
+							<label class="lab">
+								<span>籍贯</span>
+								<input type="text" name="native" class="Rnative required" >
+								<span class="user_native"></span>
+							</label>
+						</div>
+					</div>
+					
+					<div class="col-md-6">
+						<div class="form-row">
+							<label class="lab">
 								<span>工龄</span>
-								<input type="number" name="age" min="0" max="120" class="Rwkyear" >
+								<input type="number" name="wkyear" min="0" max="100" class="Rwkyear" >
+								<span class="user_wkyear"></span>
 							</label>
 						</div>
 						<div class="form-row">
 							<label class="lab">
 								<span>基本工资</span>
-								<input type="number" name="wage" class="Rbase" >
+								<input type="number" name="base" class="Rbase" >
+								<span class="user_base"></span>
 							</label>
 						</div>
-					</div>
-					<div class="col-md-6">
 						<div class="form-row">
 							<label class="lab">
 								<span>性别</span>
@@ -419,12 +460,13 @@
 
 							</label>
 						</div>
-						<div class="form-row">
-							<input type="button" value="修改" id="btn-change2">
-							<input type="button" value="关闭" class="btn-close">
-						</div>
 					</div>
-				</div>
+
+					<div style="display: inline;">
+						<input type="button" value="修改" id="btn-change2">
+						<input type="button" value="关闭" class="btn-close">
+					</div>
+				</div>	
 			</form>
 
 		</div>
